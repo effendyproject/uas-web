@@ -13,6 +13,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::view('/', 'home');
+Route::view('/about', 'about');
+Route::view('/service', 'service');
+Route::view('/contact', 'contact');
+Route::get('/dashboard', function (){
+    return view('dashboard');
 });
+
+Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard');
