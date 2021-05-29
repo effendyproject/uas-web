@@ -5,9 +5,9 @@
 @section('container')
 
 <!-- Header -->
-<header class="header">
-    <div class="container d-flex h-100 align-items-center justify-content-center">
-        <div class="header-wrap text-center">
+<header class="header relative w-full h-screen bg-no-repeat bg-center">
+    <div class="items-center justify-center h-full flex">
+        <div class="container flex text-center flex-col">
             <h2 class="tagline">About</h2>
         </div>
     </div>
@@ -15,38 +15,37 @@
 <!-- End Header -->
 
 <!-- About -->
-<div class="about">
-    <div class="container">
-        <div class="row mb-5 justify-content-center">
-            <div class="col-md-5">
-                <p class="lh-lg">
-                    We are from PT. Mover Logistic provides convenience
-                    in your logistics activities. Our company has a
-                    motto "Speed and Security of goods is "Service
-                    Priority Guarantee", our quality of service there is
-                    no doubt that there is recognition from Perum Bulog
-                    and Kemenhub. Our workers too already certified
-                    Professional Competence from the Institute Education
-                    and Development Professional Certification
-                    Management (LSP PPM) and get certification Logistics
-                    Manager from BNSP and CLM professional title
-                    (Certified Logistic Manager).
-                </p>
-            </div>
-            <div class="col-md-5">
-                <div class="logo text-center">
-                    <img class="img-fluid" src="img/Mover Logo.png" alt="ptmoverlogisticlogo">
-                </div>
+<div class="section about">
+    <div class="sm:flex block mb-5 justify-center items-center pl-20">
+        <div class="sm:w-5/12 w-full px-4">
+            <p class="lh-lg">
+                We are from PT. Mover Logistic provides convenience
+                in your logistics activities. Our company has a
+                motto "Speed and Security of goods is "Service
+                Priority Guarantee", our quality of service there is
+                no doubt that there is recognition from Perum Bulog
+                and Kemenhub. Our workers too already certified
+                Professional Competence from the Institute Education
+                and Development Professional Certification
+                Management (LSP PPM) and get certification Logistics
+                Manager from BNSP and CLM professional title
+                (Certified Logistic Manager).
+            </p>
+        </div>
+        <div class="sm:w-5/12 w-full px-4">
+            <div class="text-center">
+                <img src="{{asset('assets/img/logo.png')}}" alt="ptmoverlogisticlogo">
             </div>
         </div>
-        <div class="text-center my-3">
-            <img src="https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8bG9naXN0aWN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=500&q=80"
-                 alt="" class="img-fluid rounded">
-        </div>
-        <div class="row my-2 mx-5">
-            <div class="col-md-12 mt-3">
+    </div>
+
+    <div class="section my-3">
+        <img src="https://images.unsplash.com/photo-1494412685616-a5d310fbb07d?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NHx8bG9naXN0aWN8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1000&h=500&q=80"
+             alt="" class="img-fluid rounded">
+        <div class="sm:flex block my-2">
+            <div class="w-full mt-3">
                 <strong>Advantages at PT. Mover Logistic : </strong>
-                <ul class="advantages" style="margin-left: -1%;">
+                <ul class="advantages">
                     <li>
                         It has a wide regional coverage with a drop
                         point in all cities in Indonesia.
@@ -67,6 +66,7 @@
             </div>
         </div>
     </div>
+
 </div>
 <!-- End About -->
 

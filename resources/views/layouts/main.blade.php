@@ -14,40 +14,39 @@
         <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet" />
 
         <!-- custom styles -->
-        <link rel="stylesheet" href="../css/app.css" />
+        <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        <link rel="stylesheet" href="{{ asset('css/main.css') }}">
     </head>
 
     <body>
         <!-- Navbar -->
-        <nav class="bg-white border-b border-gray-100">
+        <nav class="navbar bg-transparent fixed top-0 z-10 w-full">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8" >
                 <div class="flex justify-between h-16">
-                    <div class="flex">
-                        <!-- Logo -->
-                        <div class="flex-shrink-0 flex items-center">
-                            <a href="{{ url('/') }}">
-                                <x-jet-application-mark class="block h-9 w-auto" />
-                            </a>
-                        </div>
+                    <!-- Logo -->
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="{{ url('/') }}">
+                            <img class="block h-9 w-auto" src="{{ asset('assets/img/logo.png') }}" />
+                        </a>
+                    </div>
 
-                        <!-- Navigation Links -->
-                        <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                            <x-jet-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')">
-                                {{ __('Home') }}
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ url('/about') }}" :active="request()->routeIs('about')">
-                                {{ __('About') }}
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ url('/service') }}" :active="request()->routeIs('service')">
-                                {{ __('Service') }}
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ url('/contact') }}" :active="request()->routeIs('contact')">
-                                {{ __('Contact') }}
-                            </x-jet-nav-link>
-                            <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')">
-                                {{ __('Login') }}
-                            </x-jet-nav-link>
-                        </div>
+                    <!-- Navigation Links -->
+                    <div class="hidden ml-auto space-x-8 sm:-my-px sm:ml-10 sm:flex">
+                        <x-jet-nav-link href="{{ url('/') }}" :active="request()->routeIs('/')" class="nav-link">
+                            {{ __('Home') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('/about') }}" :active="request()->routeIs('about')" class="nav-link">
+                            {{ __('About') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('/service') }}" :active="request()->routeIs('service')" class="nav-link">
+                            {{ __('Service') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('/contact') }}" :active="request()->routeIs('contact')" class="nav-link">
+                            {{ __('Contact') }}
+                        </x-jet-nav-link>
+                        <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')" class="nav-link">
+                            {{ __('Login') }}
+                        </x-jet-nav-link>
                     </div>
 
                     <!-- Hamburger -->
@@ -88,48 +87,64 @@
 
         <!-- Footer -->
         <footer id="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-4 mb-4 col-sm-6">
-                        <div class="card text-center h-100">
-                            <i class="fas fa-envelope"></i>
-                            <h4>Email</h4>
-                            <p>ptmoverlogistic@gmail.com</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4 col-sm-6">
-                        <div class="card text-center h-100">
-                            <i class="fas fa-map-marked-alt"></i>
-                            <h4>Address</h4>
-                            <p>
-                                Jl. Gading Serpong Boulevard padang golf no.74,
-                                Tangerang
-                            </p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-4 col-sm-6">
-                        <div class="card text-center h-100">
-                            <i class="fas fa-mobile-alt"></i>
-                            <h4>Phone</h4>
-                            <ul class="phone-lists">
-                                <li>+62 822 88888 111</li>
-                                <li>+62 815 5555 7755</li>
-                                <li>+62 838 999999 22</li>
-                                <li>021 99123456</li>
-                            </ul>
-                        </div>
+            <div class="md:flex sm:block">
+                <div class="md:w-1/3 sm:w-full p-4">
+                    <div class="card text-center h-full">
+                        <i class="fas fa-envelope"></i>
+                        <h4>Email</h4>
+                        <p>ptmoverlogistic@gmail.com</p>
                     </div>
                 </div>
-                <div class="row mt-5">
-                    <div class="copyright col-md-12 text-center">
-                        <p>Copyright © PT Mover Logistic 2021</p>
+                <div class="md:w-1/3 sm:w-full p-4">
+                    <div class="card text-center h-full">
+                        <i class="fas fa-map-marked-alt"></i>
+                        <h4>Address</h4>
+                        <p>
+                            Jl. Gading Serpong Boulevard padang golf no.74,
+                            Tangerang
+                        </p>
                     </div>
+                </div>
+                <div class="md:w-1/3 sm:w-full p-4">
+                    <div class="card text-center h-full">
+                        <i class="fas fa-mobile-alt"></i>
+                        <h4>Phone</h4>
+                        <ul class="phone-lists">
+                            <li>+62 822 88888 111</li>
+                            <li>+62 815 5555 7755</li>
+                            <li>+62 838 999999 22</li>
+                            <li>021 99123456</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-5">
+                <div class="copyright col-md-12 text-center">
+                    <p>Copyright © PT Mover Logistic 2021</p>
                 </div>
             </div>
         </footer>
         <!-- End footer -->
 
         <script src="./js/script.js"></script>
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+        <script src="{{asset('js/main.js')}}"></script>
+        <script type="text/javascript">
+            let acc = document.getElementsByClassName("accordion");
+            let i;
+
+            for (i = 0; i < acc.length; i++) {
+                acc[i].addEventListener("click", function() {
+                    this.classList.toggle("active");
+                    var panel = this.nextElementSibling;
+                    if (panel.style.display === "block") {
+                        panel.style.display = "none";
+                    } else {
+                        panel.style.display = "block";
+                    }
+                });
+            }
+        </script>
     </body>
 
 </html>
