@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home')->name('home');
+//Route::view('/', 'home')->name('home');
+Route::get('/', [\App\Http\Livewire\Testimonials::class, 'renderData']);
 Route::view('/about', 'about');
 Route::view('/service', 'service');
 Route::view('/contact', 'contact');
@@ -28,6 +29,10 @@ Route::group([
     Route::get('/services', function(){
         return view('admin.services');
     })->name('services');
+
+    Route::get('/testimonials', function(){
+        return view('admin.testimonials');
+    })->name('testimonials');
 });
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

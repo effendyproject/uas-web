@@ -84,36 +84,23 @@
                 <h2 class="title">Testimonials</h2>
             </div>
             <div class="sm:flex block mt-5">
-                <div class="sm:w-1/2 w-full p-4">
-                    <div class="card">
-                        <div class="sm:flex block">
-                            <div class="sm:w-1/3 w-full">
-                                <img class="w-full" src="https://images.unsplash.com/photo-1585846416120-3a7354ed7d39?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=150&h=150&q=80" alt="...">
-                            </div>
-                            <div class="sm:w-8/12 w-full">
-                                <div class="card-body p-5">
-                                    <p class="card-text">It has never been this easy and efficient in terms of shipping and logistics at Tokopedia. I highly recommend it</p>
-                                    <p class="card-text"><small class="text-muted">- VP at Tokopedia</small></p>
+                @foreach($data as $testimonial)
+                    <div class="sm:w-1/2 w-full p-4">
+                        <div class="card">
+                            <div class="sm:flex block">
+                                <div class="sm:w-1/3 w-full">
+                                    <img class="w-full" src="{{ asset('storage/'.$testimonial->image_name) }}" alt="...">
+                                </div>
+                                <div class="sm:w-8/12 w-full">
+                                    <div class="card-body p-5">
+                                        <p class="card-text">{{$testimonial->text}}</p>
+                                        <p class="card-text"><small class="text-muted">- {{$testimonial->name}}</small></p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="sm:w-1/2 w-full p-4">
-                    <div class="card">
-                        <div class="sm:flex block">
-                            <div class="sm:w-1/3 w-full">
-                                <img class="w-full" src="https://images.unsplash.com/photo-1543132220-4bf3de6e10ae?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=150&h=150&q=80" alt="...">
-                            </div>
-                            <div class="sm:w-8/12 w-full">
-                                <div class="card-body p-5">
-                                    <p class="card-text">Simple, robust, efficient and customer oriented to explain service on mover logistic</p>
-                                    <p class="card-text"><small class="text-muted">- Head of logistic at Shopee</small></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
