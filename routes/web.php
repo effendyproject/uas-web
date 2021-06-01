@@ -13,14 +13,23 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home');
+Route::view('/', 'home')->name('home');
 Route::view('/about', 'about');
 Route::view('/service', 'service');
 Route::view('/contact', 'contact');
-Route::get('/dashboard', function (){
-    return view('dashboard');
+
+Route::group([
+    'middleware' => ['auth:sanctum', 'verified']
+],function(){
+    Route::get('/dashboard', function(){
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::get('/services', function(){
+        return view('admin.services');
+    })->name('services');
 });
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard');
+//Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
+//    return view('dashboard');
+//})->name('dashboard');

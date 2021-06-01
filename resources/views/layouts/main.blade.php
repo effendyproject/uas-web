@@ -26,7 +26,7 @@
                     <!-- Logo -->
                     <div class="flex-shrink-0 flex items-center">
                         <a href="{{ url('/') }}">
-                            <img class="block h-9 w-auto" src="{{ asset('assets/img/logo.png') }}" />
+                            <img class="block h-9 w-auto" src="{{ asset('assets/img/logo-only.png') }}" />
                         </a>
                     </div>
 
@@ -45,7 +45,7 @@
                             {{ __('Contact') }}
                         </x-jet-nav-link>
                         <x-jet-nav-link href="{{ url('/dashboard') }}" :active="request()->routeIs('dashboard')" class="nav-link">
-                            {{ __('Login') }}
+                            {{ \Illuminate\Support\Facades\Auth::check() ? __('Dashboard') : __('Login') }}
                         </x-jet-nav-link>
                     </div>
 
