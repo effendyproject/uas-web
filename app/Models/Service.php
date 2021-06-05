@@ -16,10 +16,13 @@ class Service extends Model
     protected $appends = ['format_price','format_day'];
 
     public function getFormatPriceAttribute(){
-        return 'Rp. '.$this->price;
+        return 'Rp. '.number_format( $this->price);
     }
 
     public function getFormatDayAttribute(){
+        if ($this->day_min === $this->day_max) {
+            return $this->day_min . ' Day';
+        }
         return $this->day_min . '-'. $this->day_max . ' Day';
     }
 }

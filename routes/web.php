@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use \App\Http\Livewire\FrontBlogs;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,12 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'home')->name('home');
+Route::get('/', 'HomesController@show')->name('home');
 Route::view('/about', 'about');
-Route::view('/service', 'service');
+Route::get('/service', 'ServicesController@show');
 Route::view('/contact', 'contact');
+
+Route::get('blog/{urlslug}', 'FrontBlogsController@show');
 
 Route::group([
     'middleware' => ['auth:sanctum', 'verified']
@@ -28,6 +31,10 @@ Route::group([
     Route::get('/services', function(){
         return view('admin.services');
     })->name('services');
+
+    Route::get('/blogs', function(){
+        return view('admin.blogs');
+    })->name('blogs');
 });
 
 //Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {

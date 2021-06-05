@@ -47,7 +47,7 @@ class Services extends Component
             "description" => 'nullable',
             "image" => 'required|image|mimes:jpg,jpeg,png|max:5012',
             "price" => 'required|numeric',
-            "day_min" => 'required|integer',
+            "day_min" => 'required|integer|lte:day_max',
             "day_max" => 'required|integer'
         ];
     }

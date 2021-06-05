@@ -149,4 +149,36 @@
     </section>
     <!-- End Partner -->
 
+    <section class="section blog bg-gray-800">
+        <div class="container">
+            <div class="text-center mb-10">
+                <h2 class="title text-white">Blogs</h2>
+            </div>
+            <div class="sm:flex block">
+                @foreach($blogs as $blog)
+                    <div class="sm:w-2/6 w-full">
+                        <div class="max-w-xs overflow-hidden rounded-lg shadow-lg bg-gray-50">
+                            <div class="card-body">
+                                <h4 class="card-title text-xl font-bold text-gray-800">{{ $blog->title }}</h4>
+                                <small class="text-muted cat">
+                                    <i class="far fa-clock text-info mr-1"></i> 10 minutes
+                                </small>
+                                <p class="card-text text-gray-700 text-md">{{ $blog->sub_title }}</p>
+                                <a href="{{ url('/blog/'.$blog->slug) }}" class="underline text-sm text-gray-800">Read more</a>
+                            </div>
+                            <div class="card-footer text-muted flex justify-between">
+                                <span class="stats">
+                                    <i class="far fa-eye"></i> 0
+                                    <i class="far fa-comment"></i> 0
+                                </span>
+                                <span class="views">{{ $blog->date }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
+
 @endsection

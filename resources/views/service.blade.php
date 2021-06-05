@@ -20,129 +20,23 @@
         <h2 class="title">Our Service</h2>
     </div>
     <div class="sm:flex block text-center">
-        <div class="sm:w-4/12 w-full relative m-4">
-            <div class="card card-custom bg-white border-white border-0">
-                <div class="card-custom-img">
-                </div>
-                <div class="card-custom-avatar">
-                    <img class="w-full" src="{{asset('assets/img/Regular.png')}}" alt="Avatar" />
-                </div>
-                <div class="card-body text-left" style="overflow-y: auto">
-                    <h4 class="text-2xl"><strong>Regular Shipping</strong></h4>
-                    <p class="card-text">Regular Shipping is a light freight type that is good for domestic
-                        shipping. Delivery is made by car and motorcycle
-                        depending on the distance, weight and size of the goods. Usually intended for online
-                        store orders, delivery of goods
-                        outside the island, and others.
-                </div>
-                <div class="card-footer" style="background: inherit; border-color: inherit;">
-                    <table class="table table-auto w-full">
-                        <thead>
-                            <th class="w-1/3">Standard</th>
-                            <th class="w-1/3">Super</th>
-                            <th class="w-1/3">Instant</th>
-                        </thead>
-                        <tbody>
-                        <tr class="w-1/3">
-                            <td>Rp. 10,000</td>
-                            <td>Rp. 100,000</td>
-                            <td>Rp. 50,000</td>
-                        </tr>
-                        <tr class="w-1/3">
-                            <td>5-8 Hari</td>
-                            <td>10-15 Hari</td>
-                            <td>5-12 Hari</td>
-                        </tr>
-                        <tr class="w-1/3">
-                            <td>50%</td>
-                            <td>50%</td>
-                            <td>50%</td>
-                        </tr>
-                        </tbody>
-                    </table>
+        @foreach($services as $service)
+            <div class="sm:w-4/12 w-full relative m-4">
+                <div class="card card-custom bg-white border-white border-0">
+                    <div class="card-custom-img">
+                    </div>
+                    <div class="card-custom-avatar">
+                        <img class="h-20 rounded-full" src="{{ asset('storage/'.$service->image_name) }}">
+                    </div>
+                    <div class="card-body text-left" style="overflow-y: auto">
+                        <h4 class="text-2xl"><strong>{{ $service->name }}</strong></h4>
+                        <p class="card-text text-md font-bold text-yellow-600 my-2">{{ $service->format_price }}</p>
+                        <p class="text-gray-900">{{ $service->description }}</p>
+                        <small class="text-xs text-gray-500 mt-2">{{ $service->format_day }} day estimated delivery</small>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="sm:w-4/12 w-full relative m-4">
-            <div class="card card-custom bg-white border-white border-0">
-                <div class="card-custom-img">
-                </div>
-                <div class="card-custom-avatar">
-                    <img class="w-full" src="{{asset('assets/img/Trucking.png')}}" alt="Avatar" />
-                </div>
-                <div class="card-body text-left" style="overflow-y: auto">
-                    <h4 class="text-2xl"><strong>Trucking</strong></h4>
-                    <p class="card-text">Trucking Shipping is a type of delivery of vehicles both motorbikes and
-                        cars to various regions in Indonesia. Deliveries
-                        are made by truck trailers by a professional team.
-                </div>
-                <div class="card-footer" style="background: inherit; border-color: inherit;">
-                    <table class="table table-auto w-full">
-                        <thead>
-                            <th class="w-1/3">Standard</th>
-                            <th class="w-1/3">Super</th>
-                            <th class="w-1/3">Instant</th>
-                        </thead>
-                        <tbody>
-                        <tr>
-                            <td>Rp. 20,000</td>
-                            <td>Rp. 200,000</td>
-                            <td>Rp. 100,000</td>
-                        </tr>
-                        <tr>
-                            <td>1-4 Hari</td>
-                            <td>5-10 Hari</td>
-                            <td>3-8 Hari</td>
-                        </tr>
-                        <tr>
-                            <td>75%</td>
-                            <td>75%</td>
-                            <td>75%</td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-        <div class="sm:w-4/12 w-full relative m-4">
-            <div class="card card-custom bg-white border-white border-0">
-                <div class="card-custom-img"></div>
-                <div class="card-custom-avatar">
-                    <img class="w-full" src="{{asset('assets/img/cargo-ship.png')}}" alt="Avatar" />
-                </div>
-                <div class="card-body text-left" style="overflow-y: auto">
-                    <h4 class="text-2xl"><strong>Cargo</strong></h4>
-                    <p class="card-text">Cargo Shipping is a type of shipping intended for shipping to and from
-                        abroad. The shipment will be by plane or ship.
-                </div>
-                <div class="card-footer" style="background: inherit; border-color: inherit;">
-                    <table class="table-auto w-full">
-                        <thead>
-                            <th class="w-1/3">Standard</th>
-                            <th class="w-1/3">Super</th>
-                            <th class="w-1/3">Instant</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td>Rp. 40,000</td>
-                                <td>Rp. 400,000</td>
-                                <td>Rp. 200,000</td>
-                            </tr>
-                            <tr>
-                                <td>1 Hari</td>
-                                <td>1-5 Hari</td>
-                                <td>1-4 Hari</td>
-                            </tr>
-                            <tr>
-                                <td>100%</td>
-                                <td>100%</td>
-                                <td>100%</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+        @endforeach
     </div>
 </section>
 <!-- End Product -->
