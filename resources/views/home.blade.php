@@ -84,17 +84,17 @@
                 <h2 class="title">Testimonials</h2>
             </div>
             <div class="sm:flex block mt-5">
-                @foreach($data as $testimonial)
+                @foreach($testimonials as $testimonial)
                     <div class="sm:w-1/2 w-full p-4">
                         <div class="card">
                             <div class="sm:flex block">
                                 <div class="sm:w-1/3 w-full">
-                                    <img class="w-full" src="{{ asset('storage/'.$testimonial->image_name) }}" alt="...">
+                                    <img class="w-40 rounded" src="{{ asset('storage/'.$testimonial->image_name) }}" alt="...">
                                 </div>
                                 <div class="sm:w-8/12 w-full">
-                                    <div class="card-body p-5">
+                                    <div class="card-body p-5 py-8">
                                         <p class="card-text">{{$testimonial->text}}</p>
-                                        <p class="card-text"><small class="text-muted">- {{$testimonial->name}}</small></p>
+                                        <p class="card-text"><small class="text-muted">- {{$testimonial->name .', '.$testimonial->position }}</small></p>
                                     </div>
                                 </div>
                             </div>
@@ -135,5 +135,40 @@
         </div>
     </section>
     <!-- End Partner -->
+
+    <section class="section blog bg-gray-800">
+        <div class="container">
+            <div class="text-center mb-10">
+                <h2 class="title text-white">Blogs</h2>
+            </div>
+            <div class="sm:flex block">
+                @foreach($blogs as $blog)
+                    <div class="sm:w-2/6 w-full">
+                        <div class="max-w-xs overflow-hidden rounded-lg shadow-lg bg-gray-50">
+                            <div class="card-body">
+                                <h4 class="card-title text-xl font-bold text-gray-800">{{ $blog->title }}</h4>
+                                <hr class="my-2">
+                                <small class="text-muted cat">
+                                    <i class="far fa-clock text-info mr-1"></i> 10 minutes
+                                </small>
+                                <p class="card-text text-gray-700 text-md">
+                                    {{ $blog->sub_title }}
+                                    <a href="{{ url('/blog/'.$blog->slug) }}" class="underline text-sm text-gray-800">Read more</a>
+                                </p>
+                            </div>
+                            <div class="card-footer text-muted flex justify-between">
+                                <span class="stats">
+                                    <i class="far fa-eye"></i> 0
+                                    <i class="far fa-comment"></i> 0
+                                </span>
+                                <span class="views">{{ $blog->date }}
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
+        </div>
+    </section>
 
 @endsection

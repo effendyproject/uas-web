@@ -6,6 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
+          integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous" />
+
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
@@ -14,7 +17,7 @@
     <!-- Styles -->
     <link rel="stylesheet" href="{{ mix('css/app.css') }}">
 
-
+    @trixassets
     @livewireStyles
 
     <!-- Scripts -->
@@ -33,13 +36,8 @@
                 <div class="xl:py-2">
                     <div class="group relative sidebar-item with-children">
                         <a href="{{ route('dashboard') }}"
-                            class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 border-l-4 border-transparent hover:bg-gray-50 {{request()->routeIs('dashboard')?'border-blue-dark':''}}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                                class="h-6 w-6 text-grey-darker fill-current xl:mr-2">
-                                <path
-                                    d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM5.68 7.1A7.96 7.96 0 0 0 4.06 11H5a1 1 0 0 1 0 2h-.94a7.95 7.95 0 0 0 1.32 3.5A9.96 9.96 0 0 1 11 14.05V9a1 1 0 0 1 2 0v5.05a9.96 9.96 0 0 1 5.62 2.45 7.95 7.95 0 0 0 1.32-3.5H19a1 1 0 0 1 0-2h.94a7.96 7.96 0 0 0-1.62-3.9l-.66.66a1 1 0 1 1-1.42-1.42l.67-.66A7.96 7.96 0 0 0 13 4.06V5a1 1 0 0 1-2 0v-.94c-1.46.18-2.8.76-3.9 1.62l.66.66a1 1 0 0 1-1.42 1.42l-.66-.67zM6.71 18a7.97 7.97 0 0 0 10.58 0 7.97 7.97 0 0 0-10.58 0z"
-                                    class="heroicon-ui"></path>
-                            </svg>
+                            class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 align-middle border-r-4 hover:bg-gray-50 {{request()->routeIs('dashboard')?'border-blue-500':''}}">
+                            <i class="fa fa-tachometer-alt text-xl text-gray-600 mr-4"></i>
                             <div class=" text-xs">Dashboard</div>
                         </a>
                     </div>
@@ -48,31 +46,28 @@
                     </div>
                     <div class="group relative sidebar-item with-children">
                         <a href="{{ route('services') }}"
-                           class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 border-l-4 border-transparent hover:bg-gray-50 {{request()->routeIs('services')?'border-blue-dark':''}}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                                 class="h-6 w-6 text-grey-darker fill-current xl:mr-2">
-                                <path
-                                    d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM5.68 7.1A7.96 7.96 0 0 0 4.06 11H5a1 1 0 0 1 0 2h-.94a7.95 7.95 0 0 0 1.32 3.5A9.96 9.96 0 0 1 11 14.05V9a1 1 0 0 1 2 0v5.05a9.96 9.96 0 0 1 5.62 2.45 7.95 7.95 0 0 0 1.32-3.5H19a1 1 0 0 1 0-2h.94a7.96 7.96 0 0 0-1.62-3.9l-.66.66a1 1 0 1 1-1.42-1.42l.67-.66A7.96 7.96 0 0 0 13 4.06V5a1 1 0 0 1-2 0v-.94c-1.46.18-2.8.76-3.9 1.62l.66.66a1 1 0 0 1-1.42 1.42l-.66-.67zM6.71 18a7.97 7.97 0 0 0 10.58 0 7.97 7.97 0 0 0-10.58 0z"
-                                    class="heroicon-ui"></path>
-                            </svg>
+                           class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4  align-middle border-r-4 border-transparent hover:bg-gray-50 {{request()->routeIs('services')?'border-blue-500':''}}">
+                            <i class="fas fa-clipboard-list text-xl text-gray-600 mr-4"></i>
                             <div class=" text-xs">Services</div>
                         </a>
                     </div>
                     <div class="group relative sidebar-item with-children">
+                        <a href="{{ route('blogs') }}"
+                           class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 align-middle border-r-4 border-transparent hover:bg-gray-50 {{request()->routeIs('blogs')?'border-blue-500':''}}">
+                            <i class="fab fa-blogger-b text-xl text-gray-600 mr-4"></i>
+                            <div class=" text-xs">Blogs</div>
+                        </a>
+                    </div>
+                    <div class="group relative sidebar-item with-children">
                         <a href="{{ route('testimonials') }}"
-                           class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 border-l-4 border-transparent hover:bg-gray-50 {{request()->routeIs('testimonials')?'border-blue-dark':''}}">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
-                                 class="h-6 w-6 text-grey-darker fill-current xl:mr-2">
-                                <path
-                                    d="M12 22a10 10 0 1 1 0-20 10 10 0 0 1 0 20zM5.68 7.1A7.96 7.96 0 0 0 4.06 11H5a1 1 0 0 1 0 2h-.94a7.95 7.95 0 0 0 1.32 3.5A9.96 9.96 0 0 1 11 14.05V9a1 1 0 0 1 2 0v5.05a9.96 9.96 0 0 1 5.62 2.45 7.95 7.95 0 0 0 1.32-3.5H19a1 1 0 0 1 0-2h.94a7.96 7.96 0 0 0-1.62-3.9l-.66.66a1 1 0 1 1-1.42-1.42l.67-.66A7.96 7.96 0 0 0 13 4.06V5a1 1 0 0 1-2 0v-.94c-1.46.18-2.8.76-3.9 1.62l.66.66a1 1 0 0 1-1.42 1.42l-.66-.67zM6.71 18a7.97 7.97 0 0 0 10.58 0 7.97 7.97 0 0 0-10.58 0z"
-                                    class="heroicon-ui"></path>
-                            </svg>
+                           class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 align-middle border-r-4 border-transparent hover:bg-gray-50 {{request()->routeIs('testimonials')?'border-blue-500':''}}">
+                            <i class="fas fa-comment-dots text-xl text-gray-600 mr-4"></i>
                             <div class=" text-xs">Testimonials</div>
                         </a>
                     </div>
                     {{-- <div class="group relative sidebar-item with-children">
                         <a href="#"
-                            class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 border-l-4 border-blue-dark xl:bg-black bg-black xl:opacity-75">
+                            class="block xl:flex xl:items-center text-center xl:text-left shadow-light xl:shadow-none py-6 xl:py-2 xl:px-4 border-r-4 border-blue-dark xl:bg-black bg-black xl:opacity-75">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="24" height="24"
                                 class="h-6 w-6 text-grey-darker fill-current xl:mr-2">
                                 <path
@@ -84,15 +79,15 @@
                         <div
                             class="absolute xl:relative hidden xl:block pin-t left-full xl:pin-none w-48 xl:w-auto group-hover:block bg-black z-50 xl:z-auto">
                             <a href="#"
-                                class="block text-left xl:flex xl:items-center shadow xl:shadow-none py-3 px-3 xl:px-4 border-l-4 border-transparent  hover:text-blue-dark text-xs">
+                                class="block text-left xl:flex xl:items-center shadow xl:shadow-none py-3 px-3 xl:px-4 border-r-4 border-transparent  hover:text-blue-dark text-xs">
                                 All Notification
                             </a>
                             <a href="#"
-                                class="block text-left xl:flex xl:items-center shadow xl:shadow-none py-3 px-3 xl:px-4 border-l-4 border-transparent  hover:text-blue-dark text-xs">
+                                class="block text-left xl:flex xl:items-center shadow xl:shadow-none py-3 px-3 xl:px-4 border-r-4 border-transparent  hover:text-blue-dark text-xs">
                                 Friends
                             </a>
                             <a href="#"
-                                class="block text-left xl:flex xl:items-center shadow xl:shadow-none py-3 px-3 xl:px-4 border-l-4 border-transparent  hover:text-blue-dark text-xs">
+                                class="block text-left xl:flex xl:items-center shadow xl:shadow-none py-3 px-3 xl:px-4 border-r-4 border-transparent  hover:text-blue-dark text-xs">
                                 Other
                             </a>
                         </div>
