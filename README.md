@@ -3,9 +3,9 @@
 ## _Mover Logistic_
 
 #### Group
-- Adam Khadafi
+- Adam Khadafi (32190086)
 - Edbert Andoyo (32190047)
-- Effendy
+- Effendy (32190037)
 
 #### Installation
 ```
