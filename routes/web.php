@@ -19,6 +19,7 @@ Route::get('/', 'HomesController@show')->name('home');
 Route::view('/about', 'about');
 Route::get('/service', 'ServicesController@show');
 Route::view('/contact', 'contact');
+Route::view('/register', 'auth.register')->name('register');
 
 Route::get('blog/{urlslug}', 'FrontBlogsController@show');
 
